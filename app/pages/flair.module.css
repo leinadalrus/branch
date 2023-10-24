@@ -1,0 +1,125 @@
+.mini-profile-card {
+  max-width: 33.33%;
+  max-height: fit-content;
+
+  padding: 0rem 1rem;
+  margin: auto;
+
+  position: relative;
+  border-radius: 0.1rem;
+
+  backdrop-filter: blur(2rem);
+
+  cursor: pointer;
+}
+
+.mini-profile-section {
+  justify-content: center;
+  display: flex;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0rem 1rem;
+  margin: 1rem;
+
+  top: -1.728rem;
+  right: 1.512rem;
+}
+
+#mini-profile-callsign,
+#mini-profile-username {
+  color: #ecf1f2;
+  justify-content: center;
+  display: inline;
+  place-items: center;
+  position: relative;
+  object-fit: cover;
+  max-width: 15rem;
+  padding: 1rem;
+  margin: 1rem;
+
+  left: 0.75rem;
+  top: -1.5rem;
+}
+
+#mini-profile-avatar {
+  justify-content: center;
+  display: inline;
+  place-items: center;
+  position: relative;
+  object-fit: cover;
+  max-width: 15rem;
+  padding: 1rem;
+  margin: 1rem;
+
+  right: 1.5rem;
+  top: -1.5rem;
+}
+
+#mini-profile-emblem {
+  justify-content: center;
+  display: inline;
+  place-items: center;
+  position: relative;
+  object-fit: cover;
+  max-width: 15rem;
+  padding: 1rem;
+  margin: 1rem;
+
+  right: 1.5rem;
+  top: -1.5rem;
+
+  animation-name: float;
+  animation-duration: 30s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0);
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translate(1rem);
+    transform: translateY(0.2rem);
+  }
+
+  100% {
+    transform: translate(0);
+    transform: translateY(0);
+  }
+}
+
+#mini-profile-callsign {
+  font-family: Lato, sans-serif;
+  font-size: larger;
+  max-width: 15%;
+  max-height: 15%;
+  display: inline-flex;
+  text-align: start;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+#mini-profile-username {
+  font-family: Lato, sans-serif;
+  font-size: larger;
+  max-width: 15%;
+  max-height: 15%;
+  display: inline-flex;
+  text-align: start;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+#mini-profile-description {
+  font-family: Lora, sans-serif;
+  max-width: 15%;
+  max-height: 15%;
+  display: inline-flex;
+  position: relative;
+  text-align: start;
+  text-align-last: right;
+  padding: 0.1rem;
+  margin: 1rem;
+}
