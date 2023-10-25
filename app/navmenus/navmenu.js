@@ -1,6 +1,6 @@
 import { Link } from 'next/link'
 
-const NavMenu = () => {
+export const NavMenu = () => {
   return (
     <>
       <div class="FrostedBanner">
@@ -32,4 +32,3 @@ const NavMenu = () => {
   )
 }
 
-export default NavMenu

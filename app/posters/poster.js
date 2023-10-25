@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 
 function Banner(props) {
@@ -46,11 +48,11 @@ const Poster = () => {
   const [socialMediaShares, setSocialMediaShares] = useState(0)
 
   function likeOnClick() {
-    setLikes(likes++)
+    setLikes(likes + 1)
   }
 
   function shareOnClick() {
-    setSocialMediaShares(socialMediaShares++)
+    setSocialMediaShares(socialMediaShares + 1)
   }
 
   return (
