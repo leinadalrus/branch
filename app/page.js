@@ -6,10 +6,10 @@ const Home = () => {
     <main className={styles.main}>
 
       <div className={styles.center}>
-        <h1 class={styles.card} id="contentHeadingTitle">
-          B<hr />R A N<br />C H
+        <h1 className={styles.card} id="contentHeadingTitle">
+          B<hr />R&#8194;A&#8194;N<br />C&#8194;H
         </h1>
-        <h2 class={styles.description}>
+        <h2 className={styles.description}>
           <i>Main systems: nominal.</i>
         </h2>
       </div>
@@ -68,7 +68,7 @@ const Home = () => {
         </a>
       </div>
 
-      <footer class={styles.description}>
+      <footer className={styles.description}>
         <p>@<span>:</span><i>daniel.david.surla@gmail.com</i></p>
         <i>Daniel David Sansano Surla</i>
         <i>All Rights Reserved</i>

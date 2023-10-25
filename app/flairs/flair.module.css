@@ -1,4 +1,4 @@
-.mini-profile-card {
+.mini-profileCard {
   max-width: 33.33%;
   max-height: fit-content;
 
@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 
-.mini-profile-section {
+.miniProfileSection {
   justify-content: center;
   display: flex;
   place-items: center;
@@ -26,8 +26,8 @@
   right: 1.512rem;
 }
 
-#mini-profile-callsign,
-#mini-profile-username {
+.miniProfileTitle,
+.miniProfileName {
   color: #ecf1f2;
   justify-content: center;
   display: inline;
@@ -42,7 +42,7 @@
   top: -1.5rem;
 }
 
-#mini-profile-avatar {
+.miniProfileAvatar {
   justify-content: center;
   display: inline;
   place-items: center;
@@ -56,7 +56,7 @@
   top: -1.5rem;
 }
 
-#mini-profile-emblem {
+.miniProfileEmblem {
   justify-content: center;
   display: inline;
   place-items: center;
@@ -90,7 +90,7 @@
   }
 }
 
-#mini-profile-callsign {
+.miniProfileTitle {
   font-family: Lato, sans-serif;
   font-size: larger;
   max-width: 15%;
@@ -101,7 +101,7 @@
   margin: 1rem;
 }
 
-#mini-profile-username {
+.miniProfileName {
   font-family: Lato, sans-serif;
   font-size: larger;
   max-width: 15%;
@@ -112,7 +112,7 @@
   margin: 1rem;
 }
 
-#mini-profile-description {
+.miniProfileDescription {
   font-family: Lora, sans-serif;
   max-width: 15%;
   max-height: 15%;
