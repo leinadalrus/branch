@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Link } from 'next/link'
 
 const NavMenu = () => {
   return (
@@ -6,21 +6,21 @@ const NavMenu = () => {
       <div class="FrostedBanner">
         <div class="NavBackground"></div>
         <nav class="Navbar">
-          <a class="Overwatch" href="/app/home.component.html#overwatch">
-            <button>Overwatch</button>
-          </a>
+          <Link class="Overwatch" href="/">
+            <button>Home Base</button>
+          </Link>
 
-          <a class="Mission" href="/app/app.component.html#mission">
-            <button>Mission</button>
-          </a>
+          <Link class="Sortie" href="/#sortie">
+            <button>Mission Sortie</button>
+          </Link>
 
-          <a class="Sortie" href="/app/app.component.html#sortie">
-            <button>Sortie</button>
-          </a>
+          <Link class="Assembly" href="/#assembly">
+            <button>My Garage</button>
+          </Link>
 
-          <a class="Assembly" href="/app/app.component.html#assembly">
-            <button>Assembly</button>
-          </a>
+          <Link class="Mission" href="/#mission">
+            <button>NEST: Branch</button>
+          </Link>
 
           <div id="Line1"></div>
           <div id="Line2"></div>
