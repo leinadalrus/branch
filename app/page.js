@@ -24,9 +24,9 @@ const Home = () => {
           rel="noopener noreferrer"
         >
           <h2>
-            Docs <span>-&gt;</span>
+            Data <span>&#9733;</span>
           </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
+          <p>Ravage through N&thinsp;E&thinsp;S&thinsp;T Branch's databases&nbsp;to find configurations</p>
         </a>
 
         <a
@@ -36,9 +36,9 @@ const Home = () => {
           rel="noopener noreferrer"
         >
           <h2>
-            Learn <span>-&gt;</span>
+            Test <span>&#9733;</span>
           </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
+          <p>Test yourself in N&thinsp;E&thinsp;S&thinsp;T Branch's playground&nbsp;space</p>
         </a>
 
         <a
@@ -48,9 +48,9 @@ const Home = () => {
           rel="noopener noreferrer"
         >
           <h2>
-            Templates <span>-&gt;</span>
+            A&#8201;C&#8201;N&#8201;U&thinsp;s <span>&#9733;</span>
           </h2>
-          <p>Explore the Next.js 13 playground.</p>
+          <p>Armored Core NEST Units.</p>
         </a>
 
         <a
@@ -60,17 +60,17 @@ const Home = () => {
           rel="noopener noreferrer"
         >
           <h2>
-            Deploy <span>-&gt;</span>
+            Ravens <span>&#9733;</span>
           </h2>
           <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            Ravens of the NEST.
           </p>
         </a>
       </div>
 
       <footer className={styles.description}>
-        <p>@<span>:</span><i>daniel.david.surla@gmail.com</i></p>
         <i>Daniel David Sansano Surla</i>
+        <i>@:daniel.david.surla@gmail.com</i>
         <i>All Rights Reserved</i>
       </footer>
 
