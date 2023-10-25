@@ -1,6 +1,6 @@
 import styles from './navmenu.module.css'
 
-export function NavMenu() {
+export const NavMenu = () => {
   return (
     <div className={styles.FrostedBanner}>
       <div className={styles.NavBackground}></div>

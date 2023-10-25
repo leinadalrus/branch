@@ -1,4 +1,4 @@
-.mini-profileCard {
+.FlairCard {
   max-width: 33.33%;
   max-height: fit-content;
 
@@ -9,8 +9,9 @@
   border-radius: 0.1rem;
 
   backdrop-filter: blur(2rem);
-
   cursor: pointer;
+
+  right: 17.5rem;
 }
 
 .miniProfileSection {
@@ -73,23 +74,6 @@
   animation-duration: 30s;
 }
 
-@keyframes float {
-  0% {
-    transform: translate(0);
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translate(1rem);
-    transform: translateY(0.2rem);
-  }
-
-  100% {
-    transform: translate(0);
-    transform: translateY(0);
-  }
-}
-
 .miniProfileTitle {
   font-family: Lato, sans-serif;
   font-size: larger;
@@ -122,4 +106,73 @@
   text-align-last: right;
   padding: 0.1rem;
   margin: 1rem;
+}
+
+.Flair {
+  width: 256px;
+  height: 256px;
+}
+
+.Rectangle2 {
+  width: 256px;
+  height: 256px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  border: 0.5px #ecf1f2 solid;
+}
+
+.Rectangle3 {
+  width: 256px;
+  height: 256px;
+  left: 382px;
+  top: 0px;
+  position: absolute;
+  border: 0.5px #ecf1f2 solid;
+}
+
+.Line5 {
+  width: 1380px;
+  height: 0px;
+  left: -371px;
+  top: 338px;
+  position: absolute;
+  border: 0.5px #ecf1f2 solid;
+}
+
+.Line6 {
+  width: 256px;
+  height: 0px;
+  left: 191px;
+  top: 293px;
+  position: absolute;
+  border: 0.5px #ecf1f2 solid;
+}
+
+.Line7 {
+  width: 335px;
+  height: 0px;
+  left: 319px;
+  top: -26px;
+  position: absolute;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+  border: 0.5px #ecf1f2 solid;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0);
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translate(1rem);
+    transform: translateY(0.2rem);
+  }
+
+  100% {
+    transform: translate(0);
+    transform: translateY(0);
+  }
 }

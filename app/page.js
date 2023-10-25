@@ -1,3 +1,4 @@
+import { Flair } from './flairs/flair'
 import { NavMenu } from './navmenus/navmenu'
 import styles from './page.module.css'
 
@@ -5,18 +6,22 @@ const Home = () => {
   return (
     <main className={styles.main}>
 
-      <div className={styles.center}>
+      <section className={styles.center}>
         <h1 className={styles.card} id="contentHeadingTitle">
           B<hr />R&#8194;A&#8194;N<br />C&#8194;H
         </h1>
         <h2 className={styles.description}>
           <i>Main systems: nominal.</i>
         </h2>
-      </div>
+      </section>
 
       <NavMenu />
 
-      <div className={styles.grid}>
+      <section>
+        <Flair />
+      </section>
+
+      <section className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
@@ -66,7 +71,7 @@ const Home = () => {
             Ravens of the NEST.
           </p>
         </a>
-      </div>
+      </section>
 
       <footer className={styles.description}>
         <i>Daniel David Sansano Surla</i>

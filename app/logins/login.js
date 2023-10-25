@@ -1,9 +1,11 @@
+'use client'
+
 import { useEffect } from 'react'
 
 const Login = () => {
   return (
     <>
-      <section class="LoginConsoleBackground">
+      <article class="LoginConsoleBackground">
         <section class="LoginConsole">
           <section class="LoginConsoleSegment"></section>
 
@@ -25,7 +27,7 @@ const Login = () => {
             </div>
           </form>
         </section>
-      </section>
+      </article>
     </>
   )
 }
