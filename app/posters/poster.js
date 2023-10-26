@@ -11,7 +11,7 @@ function Banner(props) {
 }
 
 function CardTitle(props) {
-  <section class="poster-title">
+  ;<section class="poster-title">
     <h1>{props.title}</h1>
   </section>
 }
@@ -19,9 +19,7 @@ function CardTitle(props) {
 function HeroImage() {
   return (
     <div>
-      <img
-        src="assets/parts/head-part.png"
-      />
+      <img src="public/assets/heroes/hero-image.png" />
     </div>
   )
 }
@@ -63,8 +61,12 @@ const Poster = () => {
         <ItemDescription />
       </article>
       <div class="poster-buttons-container">
-        <button id="poster-button" onClick={likeOnClick}>l i k e({likes})</button>
-        <button id="poster-button" onClick={shareOnClick}>s h a r e({socialMediaShares})</button>
+        <button id="poster-button" onClick={likeOnClick}>
+          l i k e({likes})
+        </button>
+        <button id="poster-button" onClick={shareOnClick}>
+          s h a r e({socialMediaShares})
+        </button>
       </div>
     </>
   )
