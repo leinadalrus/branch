@@ -1,34 +1,32 @@
 'use client'
 
-import { useEffect } from 'react'
+import styles from './login.module.css'
 
 const Login = () => {
   return (
-    <>
-      <article class="LoginConsoleBackground">
-        <section class="LoginConsole">
-          <section class="LoginConsoleSegment"></section>
+    <article className={styles.LoginConsole}>
+      <section className={styles.LoginConsoleBackground}>
+        <section className={styles.LoginConsoleSegment}></section>
 
-          <form class="LoginConsoleForm">
-            <input type="email" name="" id="login-email-field" />
+        <form className={styles.LoginConsoleForm}>
+          <input type="email" name="email" placeholder="Email" className={styles.loginEmailField} />
 
-            <input type="password" name="password" id="login-password-field" />
+          <input type="password" name="password" placeholder="Password" className={styles.loginPasswordField} />
 
-            <div id="login-console-reset">
-              <a href="./login.component.html">Forgot Password</a>
-            </div>
+          <div className={styles.loginConsoleReset}>
+            <button><i>Forgot password</i></button>
+          </div>
 
-            <div id="login-console-reset">
-              <button type="reset">Remember Me</button>
-            </div>
+          <div className={styles.loginConsoleReset}>
+            <button type="reset"><i>Remember me</i></button>
+          </div>
 
-            <div id="login-console-submit">
-              <button type="submit">Sign In</button>
-            </div>
-          </form>
-        </section>
-      </article>
-    </>
+          <div className={styles.loginConsoleSubmit}>
+            <button type="submit">Sign In</button>
+          </div>
+        </form>
+      </section>
+    </article>
   )
 }
 

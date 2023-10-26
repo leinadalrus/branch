@@ -1,4 +1,5 @@
 import { Flair } from './flairs/flair'
+import Login from './logins/login'
 import { NavMenu } from './navmenus/navmenu'
 import styles from './page.module.css'
 
@@ -15,10 +16,14 @@ const Home = () => {
         </h2>
       </section>
 
-      <NavMenu />
-
       <section>
         <Flair />
+      </section>
+
+      <Login />
+
+      <section>
+        <NavMenu />
       </section>
 
       <section className={styles.grid}>
