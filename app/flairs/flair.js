@@ -1,17 +1,27 @@
+import Image from 'next/image'
 import styles from './flair.module.css'
 
 export const Flair = () => {
   return (
     <article className={styles.FlairCard}>
       <section className={styles.Flair}>
-
-        <div
-          className={styles.Rectangle3}>
-          <img className={styles.miniProfileEmblem} />
+        <div className={styles.Rectangle3}>
+          <Image
+            className={styles.miniProfileAvatar}
+            src="assets/avatars/user-avatar.png" /// Route of the image file
+            height={144} /// Desired size with correct aspect ratio
+            width={144} /// Desired size with correct aspect ratio
+            alt="Image of a desired item."
+          />
         </div>
-        <div
-          className={styles.Rectangle2}>
-          <img className={styles.miniProfileAvatar} />
+        <div className={styles.Rectangle2}>
+          <Image
+            className={styles.miniProfileAvatar}
+            src="assets/emblems/group-emblem.png" /// Route of the image file
+            height={144} /// Desired size with correct aspect ratio
+            width={144} /// Desired size with correct aspect ratio
+            alt="Image of a desired item."
+          />
         </div>
 
         <div className={styles.Line5}></div>
