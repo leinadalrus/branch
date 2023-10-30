@@ -6,10 +6,12 @@ import styles from './page.module.css'
 const Home = () => {
   return (
     <main className={styles.main}>
-
       <section className={styles.center}>
         <h1 className={styles.card} id="contentHeadingTitle">
-          B<hr />R&#8194;A&#8194;N<br />C&#8194;H
+          B<hr />
+          R&#8194;A&#8194;N
+          <br />
+          C&#8194;H
         </h1>
         <h2 className={styles.description}>
           <i>Main systems: nominal.</i>
@@ -31,32 +33,35 @@ const Home = () => {
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           <h2>
             Data <span>&#9733;</span>
           </h2>
-          <p>Ravage through N&thinsp;E&thinsp;S&thinsp;T Branch's databases&nbsp;to find configurations</p>
+          <p>
+            Ravage through N&thinsp;E&thinsp;S&thinsp;T Branch&apos;s
+            databases&nbsp;to find configurations
+          </p>
         </a>
 
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           <h2>
             Test <span>&#9733;</span>
           </h2>
-          <p>Test yourself in N&thinsp;E&thinsp;S&thinsp;T Branch's playground&nbsp;space</p>
+          <p>
+            Test yourself in N&thinsp;E&thinsp;S&thinsp;T Branch&apos;s
+            playground&nbsp;space
+          </p>
         </a>
 
         <a
           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           <h2>
             A&#8201;C&#8201;N&#8201;U&thinsp;s <span>&#9733;</span>
           </h2>
@@ -67,14 +72,11 @@ const Home = () => {
           href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           <h2>
             Ravens <span>&#9733;</span>
           </h2>
-          <p>
-            Ravens of the NEST.
-          </p>
+          <p>Ravens of the NEST.</p>
         </a>
       </section>
 
@@ -83,7 +85,6 @@ const Home = () => {
         <i>@:daniel.david.surla@gmail.com</i>
         <i>All Rights Reserved</i>
       </footer>
-
     </main>
   )
 }

@@ -41,7 +41,7 @@ const SpiderChartFactory = {
       .angle((delta, index) => index /= radianRx)
 
     return radarAxes
-  }
+  },
 
   chart() {
     const xAxis = useRef()

@@ -1,3 +1,21 @@
+# Branch
+
+#### Motivations
+
+Developed to create a CMS web-app for statistical posters and content submissions, reviews and readings.
+
+This is mainly a small project to recreate the Database interface from `Armored Core VI: Fires of Rubicon`.
+
+Another reason for the development of this project is to create a federated React.js web-app.
+
+This React.js web-app is to help with sharing custom Armored Core builds from the game of the same name.
+
+It's also a way to have a React.js version of the `mastiff-press/comcon` Vue.js web-app.
+
+###### Code Sandbox (share link):
+
+`https://codesandbox.io/p/sandbox/young-grass-rj8n9d`
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
