@@ -4,8 +4,6 @@ import { SpiderChartComponent } from './spiderchart.component'
 
 export const RadarChart = () => {
   return (
-    <>
       <SpiderChartComponent />
-    </>
   )
 }

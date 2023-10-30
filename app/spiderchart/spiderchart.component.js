@@ -8,19 +8,40 @@ const SpiderChartFactory = {
   defaultConfig: {
     containerClass: 'props',
     data,
-    width: 512,
-    height: 320,
+
+    width: 144,
+    height: 144,
+
+    margin: 20,
+    padding: 10,
+
     maxRange: 1,
     minimumRange: 1,
+
     radians: 2 * Math.PI,
-    axisLine: true,
-    circles: true,
     radius: 1,
+
+    axisLine: true,
+    axisCircles: true,
+
+    axesDomains = 4,
+    axesCircles: 1,
 
     axisJoin: (delta, index) => {
       return delta.className || index
     },
   },
+
+  axes() {
+    let radianRx = 2 * Math.PI
+
+    let radarAxes = d3.lineRadial()
+      .curve(d3['curveLinearClosed']
+      .radius(delta => d3.scaleRadial(delta))
+      .angle((delta, index) => index /= radianRx)
+
+    return radarAxes
+  }
 
   chart() {
     const xAxis = useRef()
@@ -87,13 +108,11 @@ export class SpiderChartComponent extends Component {
   }
 
   render() {
-    return (
-      <>
+    return (>
         <figure
           ref={update()}
           className={styles.SpiderChart}
           id="spiderchart"></figure>
-      </>
     )
   }
 }

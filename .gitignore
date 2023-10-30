@@ -33,3 +33,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Editor (Common)
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
