@@ -2,6 +2,7 @@ import { Flair } from './flairs/flair'
 import Login from './logins/login'
 import { NavMenu } from './navmenus/navmenu'
 import styles from './page.module.css'
+import { RadarChart } from './spiderchart/radarchart'
 
 const Home = () => {
   return (
@@ -23,6 +24,8 @@ const Home = () => {
       </section>
 
       <Login />
+
+      <RadarChart />
 
       <section>
         <NavMenu />

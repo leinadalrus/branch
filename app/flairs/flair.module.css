@@ -46,32 +46,37 @@
 .miniProfileAvatar {
   justify-content: center;
   display: inline;
+
   place-items: center;
   position: relative;
   object-fit: cover;
+
   max-width: 15rem;
+  max-height: 15rem;
+
   padding: 1rem;
   margin: 1rem;
 
-  right: 1.5rem;
-  top: -1.5rem;
+  right: 0.5rem;
+  top: -0.5rem;
 }
 
 .miniProfileEmblem {
   justify-content: center;
   display: inline;
+
   place-items: center;
   position: relative;
   object-fit: cover;
+
   max-width: 15rem;
+  max-height: 15rem;
+
   padding: 1rem;
   margin: 1rem;
 
-  right: 1.5rem;
-  top: -1.5rem;
-
-  animation-name: float;
-  animation-duration: 30s;
+  right: 0.5rem;
+  top: -0.5rem;
 }
 
 .miniProfileTitle {

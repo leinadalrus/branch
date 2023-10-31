@@ -7,7 +7,7 @@ import * as d3 from 'd3'
 const SpiderChartFactory = {
   defaultConfig: {
     containerClass: 'props',
-    data,
+    data: [],
 
     width: 144,
     height: 144,
@@ -24,7 +24,7 @@ const SpiderChartFactory = {
     axisLine: true,
     axisCircles: true,
 
-    axesDomains = 4,
+    axesDomains: 4,
     axesCircles: 1,
 
     axisJoin: (delta, index) => {
@@ -38,7 +38,7 @@ const SpiderChartFactory = {
     let radarAxes = d3.lineRadial()
       .curve(d3['curveLinearClosed']
       .radius(delta => d3.scaleRadial(delta))
-      .angle((delta, index) => index /= radianRx)
+      .angle(index => index /= radianRx))
 
     return radarAxes
   },
@@ -94,7 +94,7 @@ export class SpiderChartComponent extends Component {
   }
 
   update() {
-    let spiderChart = new SpiderChartFactory()
+    let spiderChart = SpiderChartFactory
     let container = d3.select(spiderChart.defaultConfig.containerClass)
 
     container
@@ -108,9 +108,9 @@ export class SpiderChartComponent extends Component {
   }
 
   render() {
-    return (>
+    return (
         <figure
-          ref={update()}
+          ref={this.update()}
           className={styles.SpiderChart}
           id="spiderchart"></figure>
     )

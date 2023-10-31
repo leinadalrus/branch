@@ -8,18 +8,18 @@ export const Flair = () => {
         <div className={styles.Rectangle3}>
           <Image
             className={styles.miniProfileAvatar}
-            src="assets/avatars/user-avatar.png" /// Route of the image file
-            height={144} /// Desired size with correct aspect ratio
-            width={144} /// Desired size with correct aspect ratio
+            src="/assets/emblems/group-emblem.png" /// Route of the image file
+            height={256} /// Desired size with correct aspect ratio
+            width={256} /// Desired size with correct aspect ratio
             alt="Image of a desired item."
           />
         </div>
         <div className={styles.Rectangle2}>
           <Image
-            className={styles.miniProfileAvatar}
-            src="assets/emblems/group-emblem.png" /// Route of the image file
-            height={144} /// Desired size with correct aspect ratio
-            width={144} /// Desired size with correct aspect ratio
+            className={styles.miniProfileEmblem}
+            src="/assets/avatars/user-avatar.png" /// Route of the image file
+            height={256} /// Desired size with correct aspect ratio
+            width={256} /// Desired size with correct aspect ratio
             alt="Image of a desired item."
           />
         </div>
