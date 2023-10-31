@@ -34,7 +34,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Editor (Common)
+# IDE (common)
+*.idea
+
+# Editor (common)
 *.code-workspace
 *.sublime-project
 *.sublime-workspace
