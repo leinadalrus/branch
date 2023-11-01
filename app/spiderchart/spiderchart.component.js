@@ -54,7 +54,7 @@ function amplitude(width, height, angle) {
   return { x: width / 2 + deltaX, y: height / 2 - deltaY }
 }
 
-function watch(props) {
+function watch(width, height, data) {
   const xAxis = useRef()
   const yAxis = useRef()
 
@@ -131,7 +131,7 @@ function coordinates(data) {
   for (let i = 0; i < data.length; i++) {
     let names = datum[i]
     let angle = angles(i, data.length)
-    
+
     vector.push(amplitude(angle, data[names]))
   }
 
@@ -148,16 +148,20 @@ export class SpiderChartComponent extends Component {
   }
 
   update() {
-    radar(254, 254)
+    let width = 254,
+      height = 254
+    radar(width, height)
+
     coordinates(props)
     differential(props)
-    watch(props)
+
+    watch(width, height, props)
   }
 
   render() {
     return (
       <figure
-        ref={this.update()}
+        ref={props}
         className={styles.SpiderChart}
         id="spiderchart"></figure>
     )
