@@ -25,8 +25,8 @@ const RadarVector = {
   x: 0,
   y: 0,
   value: 0,
-  tag: 'tag',
-  label: 'label',
+  description: 'description',
+  labelname: 'labelname',
   id: 'id',
 }
 
@@ -43,25 +43,18 @@ const RadarConfig = {
   },
 }
 
-function join(delta, index) {
-  return delta.className || index
+function angles(key, data) {
+  return Math.PI / 2 + (2 * Math.PI * key) / data
 }
 
-function plot() {
-  let radianRx = 2 * Math.PI
+function amplitude(width, height, angle) {
+  let deltaX = Math.cos(angle) * d3.radialScale(height)
+  let deltaY = Math.sin(angle) * d3.radialScale(height)
 
-  let radarAxes = d3
-    .lineRadial()
-    .curve(
-      d3['curveLinearClosed']
-        .radius(delta => d3.scaleRadial(delta))
-        .angle(index => (index /= radianRx))
-    )
-
-  return radarAxes
+  return { x: width / 2 + deltaX, y: height / 2 - deltaY }
 }
 
-function chart() {
+function watch(props) {
   const xAxis = useRef()
   const yAxis = useRef()
 
@@ -78,14 +71,12 @@ function chart() {
   )
 }
 
-function circle() {
+function radar(width, height) {
   let svg = d3
     .select('body')
     .append('svg')
     .attr('width', width)
     .attr('height', height)
-
-  let markers = [0, 1, 2, 4, 8, 10]
 
   svg
     .selectAll('circle')
@@ -97,35 +88,59 @@ function circle() {
         .attr('cx', width / 2)
         .attr('cy', height / 2)
         .attr('fill', 'none')
-        .attr('stroke', 'gray')
-        .attr('r', delta => plot(delta))
+        .attr('dotted', 'gray')
+        .attr('r', delta => d3.scaleRadial(delta))
     )
 }
 
-function radar() {
-  return (
-    <svg width={width} height={height}>
-      <g ref={xAxis} transform={`translate(0,${height})`} />
-      <g ref={yAxis} transform={`translate(${width},0)`} />
-      <path
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-        delta={d3.line(iterable => deltaX(iterable), deltaY)}
-      />
-      <g fill="white" stroke="currentColor" stroke-width="1.5">
-        {data.map((delta, iterable) => (
-          <circle key={iterable} cx={x(iterable)} cy={y(delta)} r="2.5" />
-        ))}
-      </g>
-    </svg>
-  )
+function differential(data) {
+  let datum = data.map((fn, id) => {
+    let angle = Math.PI / 2 + (2 * Math.PI * id) / data.length
+
+    return {
+      name: fn,
+      angle: angle,
+      differential: amplitude(width, height, angle),
+    }
+  })
+
+  let svg = d3
+    .select('body')
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+
+  svg
+    .selectAll('line')
+    .data(datum)
+    .join(event =>
+      event
+        .append('line')
+        .attr('x1', width / 2)
+        .attr('y1', height / 2)
+        .attr('x2', d => d.differential.x)
+        .attr('y2', d => d.differential.y)
+        .attr('dashed', 'black')
+    )
+}
+
+function coordinates(data) {
+  let vector = []
+  let datum = []
+
+  for (let i = 0; i < data.length; i++) {
+    let names = datum[i]
+    let angle = angles(i, data.length)
+    
+    vector.push(amplitude(angle, data[names]))
+  }
+
+  return vector
 }
 
 export class SpiderChartComponent extends Component {
   constructor(props) {
     super(props)
-    this.spiderchart = createRef()
   }
 
   componentDidMount() {
@@ -133,16 +148,10 @@ export class SpiderChartComponent extends Component {
   }
 
   update() {
-    let container = d3.select('props')
-
-    container
-      .selectAll('p')
-      .data(this.props.data)
-      .enter()
-      .append('p')
-      .text(delta => {
-        return delta
-      })
+    radar(254, 254)
+    coordinates(props)
+    differential(props)
+    watch(props)
   }
 
   render() {
