@@ -1,5 +1,5 @@
 import styles from './spiderchart.module.css'
-import { createRef, Component } from 'react'
+import { Component } from 'react'
 import * as d3 from 'd3'
 
 /// TODO(Daud): D3.js Spiderchart function (curry functions, too) components here
@@ -52,23 +52,6 @@ function amplitude(width, height, angle) {
   let deltaY = Math.sin(angle) * d3.radialScale(height)
 
   return { x: width / 2 + deltaX, y: height / 2 - deltaY }
-}
-
-function watch(width, height, data) {
-  const xAxis = useRef()
-  const yAxis = useRef()
-
-  const deltaX = d3.scaleRadial([0, data.length - 1], [width])
-  const deltaY = d3.scaleRadial([0, data.length - 1], [height])
-
-  useEffect(
-    () => void d3.select(xAxis.current).call(d3.axisBottom(deltaX)),
-    [xAxis, deltaX]
-  )
-  useEffect(
-    () => void d3.select(yAxis.current).call(d3.axisBottom(deltaY)),
-    [yAxis, deltaY]
-  )
 }
 
 function radar(width, height) {
@@ -136,6 +119,24 @@ function coordinates(data) {
   }
 
   return vector
+}
+
+export function watch(width, height, data) {
+  const xAxis = useRef()
+  const yAxis = useRef()
+
+  const deltaX = d3.scaleRadial([0, data.length - 1], [width])
+  const deltaY = d3.scaleRadial([0, data.length - 1], [height])
+
+  useEffect(
+    () => void d3.select(xAxis.current).call(d3.axisBottom(deltaX)),
+    [xAxis, deltaX]
+  )
+
+  useEffect(
+    () => void d3.select(yAxis.current).call(d3.axisBottom(deltaY)),
+    [yAxis, deltaY]
+  )
 }
 
 export class SpiderChartComponent extends Component {

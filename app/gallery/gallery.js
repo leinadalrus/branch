@@ -60,8 +60,6 @@ export const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   return (
-    <>
-      <section className={styles.GalleryCarousel}>
         <Image
           className={styles.GalleryCard}
           src="assets/heads/head-part.png" /// Route of the image file
@@ -69,7 +67,5 @@ export const Gallery = () => {
           width={144} /// Desired size with correct aspect ratio
           alt="Image of a desired item."
         />
-      </section>
-    </>
   )
 }
