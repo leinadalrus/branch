@@ -1,5 +1,4 @@
 import { Component } from 'react'
-import styles from './tuner.module.css'
 
 class TunerComponent extends Component {
   constructor(props) {

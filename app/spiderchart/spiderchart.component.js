@@ -121,7 +121,10 @@ function coordinates(data) {
   return vector
 }
 
-export function watch(width, height, data) {
+/// use a `const Object` over a lambda function, or function itself
+/// Reducers must be pure.
+/// They should update objects and arrays without mutations.
+export const Watch = (width, height, data) => {
   const xAxis = useRef()
   const yAxis = useRef()
 
@@ -156,7 +159,7 @@ export class SpiderChartComponent extends Component {
     coordinates(props)
     differential(props)
 
-    watch(width, height, props)
+    Watch(width, height, props)
   }
 
   render() {
