@@ -19,11 +19,23 @@ function dumbDispose(state, dispose) {
     )
     return () => clearTimeout(timeout)
   }, state.observed)
+}
 
-  useEffect(() => {
-    const timeout = setTimeout(() => dispose({ type: 'done' }), interval)
-    return () => clearTimeout(timeout)
-  }, state.expected)
+function next(slides, state) {
+  slides = document.querySelector('.Slides')
+  let container = document.querySelector('.GalleryContainer')
+
+  for (let index = 0; index < slides.length; index++)
+    slides[index].style.display = state
+}
+
+function previous(slides, state) {
+  slides = document.querySelector('.Slides')
+  let container = document.querySelector('.GalleryContainer')
+
+  slides.forEach((slide, index) => {
+    slide.style.transform = `translateX(${ 100 * (index - slides.clientWidth)}`
+  })
 }
 
 /// Each action describes a single user interaction, 
@@ -36,11 +48,6 @@ function dispatchRed(state, action) {
   dumbDispose(state, action)
 
   switch (action.type) {
-    case 'jump':
-      return {
-        ...state,
-        expected: action.expected,
-      }
     case 'next':
       return {
         ...state,
@@ -75,7 +82,7 @@ export const Gallery = () => {
   return (
     <Image
       className={styles.GalleryCard}
-      src="assets/heads/head-part.png" /// Route of the image file
+      src="/assets/heads/head-part.png" /// Route of the image file
       height={144} /// Desired size with correct aspect ratio
       width={144} /// Desired size with correct aspect ratio
       alt="Image of a desired item."
