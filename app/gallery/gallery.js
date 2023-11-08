@@ -3,49 +3,55 @@ import Image from 'next/image'
 import { useEffect, useMemo, useReducer, useState } from 'react'
 
 /// Dispatch function :=
-function dumbDispose(state, dispose) {
-  let items = new Array()
-  let interval = 500
-
-  useEffect(() => {
-    const timeout = setTimeout(() => dispose({ type: 'next', items }), interval)
-    return () => clearTimeout(timeout)
-  }, state.observed)
+function useDumbdisposable(disposable, state) {
+  const interval = 1000
+  const observable = useState(state)
+  /// NOTE(useMemo):
+  /// const items = useMemo(observable, disposable, interval =>
+  /// Array(observable, disposable, interval)
+  /// )
+  const items = useMemo(() => [], [])
 
   useEffect(() => {
     const timeout = setTimeout(
-      () => dispose({ type: 'previous', items }),
+      () => observable({ type: 'next', items }),
       interval
     )
     return () => clearTimeout(timeout)
-  }, state.observed)
+  }, [observable, disposable, interval, items])
+
+  useEffect(() => {
+    const timeout = setTimeout(
+      () => observable({ type: 'previous', items }),
+      interval
+    )
+    return () => clearTimeout(timeout)
+  }, [observable, disposable, interval, items])
 }
 
 function next(slides, state) {
   slides = document.querySelector('.Slides')
-  let container = document.querySelector('.GalleryContainer')
 
   for (let index = 0; index < slides.length; index++)
     slides[index].style.display = state
 }
 
-function previous(slides, state) {
+function previous(slides) {
   slides = document.querySelector('.Slides')
-  let container = document.querySelector('.GalleryContainer')
 
   slides.forEach((slide, index) => {
-    slide.style.transform = `translateX(${ 100 * (index - slides.clientWidth)}`
+    slide.style.transform = `translateX(${100 * (index - slides.clientWidth)}`
   })
 }
 
-/// Each action describes a single user interaction, 
+/// Each action describes a single user interaction,
 /// even if that leads to multiple changes in the data.
-/// If you log every action in a reducer, 
-/// that log should be clear enough for you to reconstruct what interactions 
-/// or responses happened in what order. 
+/// If you log every action in a reducer,
+/// that log should be clear enough for you to reconstruct what interactions
+/// or responses happened in what order.
 /// This helps with debugging!
-function dispatchRed(state, action) {
-  dumbDispose(state, action)
+function useDispatchRed(state, action) {
+  useDumbdisposable(state, action)
 
   switch (action.type) {
     case 'next':
@@ -70,19 +76,25 @@ export const Gallery = () => {
   }
 
   /// useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
-  const [observed, disposed] = useMemo(() => {
-    /// Extracting State Logic into a Reducer
-    /// Components with many state updates spread across many event handlers can get overwhelming. 
-    /// For these cases, you can consolidate all the state update logic outside your component in a single function, 
-    /// called a reducer.
-    useReducer(dispatchRed, ObservedState)
-  })
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [state, dispatch] = useReducer(useDispatchRed, ObservedState)
+
+  function observe() {
+    state({ type: 'previous' })
+  }
+
+  function dispose() {
+    dispatch({ type: 'next' })
+  }
+
+  /// Extracting State Logic into a Reducer
+  /// Components with many state updates spread across many event handlers can get overwhelming.
+  /// For these cases, you can consolidate all the state update logic outside your component in a single function,
+  /// called a reducer.
 
   return (
     <Image
       className={styles.GalleryCard}
-      src="/assets/heads/head-part.png" /// Route of the image file
+      src={dispose() ? observe() : '/assets/heads/head-part.png'} /// Route of the image file
       height={144} /// Desired size with correct aspect ratio
       width={144} /// Desired size with correct aspect ratio
       alt="Image of a desired item."

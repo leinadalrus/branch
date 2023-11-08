@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 
 function Banner(props) {
@@ -11,7 +12,7 @@ function Banner(props) {
 }
 
 function CardTitle(props) {
-  ;<section class="poster-title">
+  <section class="poster-title">
     <h1>{props.title}</h1>
   </section>
 }
@@ -19,7 +20,10 @@ function CardTitle(props) {
 function HeroImage() {
   return (
     <div>
-      <img src="public/assets/heroes/hero-image.png" />
+      <Image
+        src="/assets/heroes/hero-image.png"
+        alt="Hero Image for Card-Styled Poster"
+      />
     </div>
   )
 }
@@ -57,6 +61,7 @@ const Poster = () => {
     <>
       <article id="poster-card">
         <Banner />
+        <CardTitle />
         <HeroImage />
         <ItemDescription />
       </article>

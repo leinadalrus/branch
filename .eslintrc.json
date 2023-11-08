@@ -1,7 +1,11 @@
 {
-  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "next"
+  ],
   "parserOptions": {
-    "ecmaVersion": 2023,
+    "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true

@@ -1,12 +1,12 @@
 import styles from './spiderchart.module.css'
-import { Component } from 'react'
+import { Component, useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 
 /// TODO(Daud): D3.js Spiderchart function (curry functions, too) components here
 
-const RadarType = { key, label }
+const RadarType = { key: '0', label: '0' }
 
-const RadarMap = { radarMap: RadarType(), values: [{}] }
+const RadarMap = { radarMap: RadarType, values: [{}] }
 
 const RadarSet = { members: Array < RadarMap > 1, pairs: Array < RadarMap > 1 }
 
@@ -33,13 +33,16 @@ const RadarVector = {
 const RadarConfig = {
   defaultConfig: {
     containerClass: 'props',
-    data: RadarSet(),
+    data: RadarSet,
 
     width: 512,
     height: 512,
 
     padding: 16,
     domains: 1,
+
+    labels: RadarLabels,
+    positions: RadarVector,
   },
 }
 
@@ -48,13 +51,17 @@ function angles(key, data) {
 }
 
 function amplitude(width, height, angle) {
-  let deltaX = Math.cos(angle) * d3.radialScale(height)
-  let deltaY = Math.sin(angle) * d3.radialScale(height)
+  let deltaX = Math.cos(angle) * d3.scaleRadial(height)
+  let deltaY = Math.sin(angle) * d3.scaleRadial(height)
 
   return { x: width / 2 + deltaX, y: height / 2 - deltaY }
 }
 
 function radar(width, height) {
+  width = RadarConfig.defaultConfig.width
+  height = RadarConfig.defaultConfig.height
+  let datum = RadarConfig.defaultConfig.data
+
   let svg = d3
     .select('body')
     .append('svg')
@@ -63,7 +70,7 @@ function radar(width, height) {
 
   svg
     .selectAll('circle')
-    .data(markers)
+    .data(datum)
     .range([0, 254])
     .join(event =>
       event
@@ -77,6 +84,9 @@ function radar(width, height) {
 }
 
 function differential(data) {
+  let width = RadarConfig.defaultConfig.width
+  let height = RadarConfig.defaultConfig.height
+
   let datum = data.map((fn, id) => {
     let angle = Math.PI / 2 + (2 * Math.PI * id) / data.length
 
@@ -124,21 +134,48 @@ function coordinates(data) {
 /// use a `const Object` over a lambda function, or function itself
 /// Reducers must be pure.
 /// They should update objects and arrays without mutations.
-export const Watch = (width, height, data) => {
-  const xAxis = useRef()
-  const yAxis = useRef()
+export const Watch = (width, height) => {
+  let deltaX = d3.scaleRadial([0, RadarConfig.defaultConfig.data - 1], [width])
 
-  const deltaX = d3.scaleRadial([0, data.length - 1], [width])
-  const deltaY = d3.scaleRadial([0, data.length - 1], [height])
+  let deltaY = d3.scaleRadial([0, RadarConfig.defaultConfig.data - 1], [height])
+
+  const [xAxis, setX] = useRef(deltaX)
+  const [yAxis, setY] = useRef(deltaY)
 
   useEffect(
-    () => void d3.select(xAxis.current).call(d3.axisBottom(deltaX)),
+    () =>
+      void d3
+        .select(RadarConfig.defaultConfig.positions.x)
+        .call(d3.axisBottom(deltaX)),
     [xAxis, deltaX]
   )
 
   useEffect(
-    () => void d3.select(yAxis.current).call(d3.axisBottom(deltaY)),
+    () =>
+      void d3
+        .select(RadarConfig.defaultConfig.positions.y)
+        .call(d3.axisBottom(deltaY)),
     [yAxis, deltaY]
+  )
+
+  function x() {
+    setX({ type: 'width' })
+  }
+
+  function y() {
+    setY({ type: 'height' })
+  }
+
+  return (
+    <>
+      <label>
+        <input value={xAxis} onChange={e => x(e.target.value)} />
+      </label>
+
+      <label>
+        <input value={yAxis} onChange={e => y(e.target.value)} />
+      </label>
+    </>
   )
 }
 
@@ -156,17 +193,17 @@ export class SpiderChartComponent extends Component {
       height = 254
     radar(width, height)
 
-    coordinates(props)
-    differential(props)
+    coordinates(this.props)
+    differential(this.props)
 
-    Watch(width, height, props)
+    Watch(width, height, RadarConfig)
   }
 
   render() {
     return (
       <figure
-        ref={props}
-        className={styles.SpiderChart}
+        ref={this.props}
+        className={styles.SpiderChartContainer}
         id="spiderchart"></figure>
     )
   }
