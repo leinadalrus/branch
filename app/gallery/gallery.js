@@ -10,7 +10,7 @@ function useDumbdisposable(disposable, state) {
   /// const items = useMemo(observable, disposable, interval =>
   /// Array(observable, disposable, interval)
   /// )
-  const items = useMemo(() => Array(), Array())
+  const items = useMemo(() => Array(), [])
 
   useEffect(() => {
     const timeout = setTimeout(
