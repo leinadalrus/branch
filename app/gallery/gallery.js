@@ -69,11 +69,31 @@ function useDispatchRed(state, action) {
   }
 }
 
+const ImageMediums = [
+  {
+    id: 0,
+    title: 'Hello World',
+    description: 'An image of an iterable item.',
+  },
+]
+
 export const Gallery = () => {
   const ObservedState = {
     expected: 0,
     observed: 0,
   }
+
+  const medias = ImageMediums.map(media => {
+    <li key={media.id}>
+      <Image
+        className={styles.GalleryCard}
+        src={dispose() ? observe() : '/assets/avatars/user-avatar.png'} /// Route of the image file
+        height={144} /// Desired size with correct aspect ratio
+        width={144} /// Desired size with correct aspect ratio
+        alt="Image of a desired item."
+      />
+    </li>
+  })
 
   /// useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
   const [state, dispatch] = useReducer(useDispatchRed, ObservedState)
@@ -92,12 +112,15 @@ export const Gallery = () => {
   /// called a reducer.
 
   return (
-    <Image
-      className={styles.GalleryCard}
-      src={dispose() ? observe() : '/assets/heads/head-part.png'} /// Route of the image file
-      height={144} /// Desired size with correct aspect ratio
-      width={144} /// Desired size with correct aspect ratio
-      alt="Image of a desired item."
-    />
+    <article>
+      <Image
+        className={styles.GalleryCard}
+        src={dispose() ? observe() : '/assets/heads/head-part.png'} /// Route of the image file
+        height={144} /// Desired size with correct aspect ratio
+        width={144} /// Desired size with correct aspect ratio
+        alt="Image of a desired item."
+      />
+      <ul>{medias}</ul>
+    </article>
   )
 }
