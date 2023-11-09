@@ -69,6 +69,18 @@ function useDispatchRed(state, action) {
   }
 }
 
+function CarouselCard() {
+  return (
+    <Image
+      className={styles.GalleryCard}
+      src={'/assets/avatars/user-avatar.png'} /// Route of the image file
+      height={144} /// Desired size with correct aspect ratio
+      width={144} /// Desired size with correct aspect ratio
+      alt="Image of a desired item."
+    />
+  )
+}
+
 const ImageMediums = [
   {
     id: 0,
@@ -84,15 +96,10 @@ export const Gallery = () => {
   }
 
   const medias = ImageMediums.map(media => {
-    <li key={media.id}>
-      <Image
-        className={styles.GalleryCard}
-        src={dispose() ? observe() : '/assets/avatars/user-avatar.png'} /// Route of the image file
-        height={144} /// Desired size with correct aspect ratio
-        width={144} /// Desired size with correct aspect ratio
-        alt="Image of a desired item."
-      />
-    </li>
+    <>
+      <CarouselCard />
+      <li key={dispose() ? observe() : media.id}></li>
+    </>
   })
 
   /// useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
