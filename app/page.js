@@ -1,8 +1,9 @@
+import { Carousel } from './carousel/carousel'
 import { Flair } from './flairs/flair'
 import Login from './logins/login'
 import { NavMenu } from './navmenus/navmenu'
+import { Newsfeed } from './newsfeed/newsfeed'
 import styles from './page.module.css'
-import { RadarChart } from './spiderchart/radarchart'
 
 const Home = () => {
   return (
@@ -25,11 +26,13 @@ const Home = () => {
 
       <Login />
 
-      <RadarChart />
-
       <section>
         <NavMenu />
       </section>
+
+      <Carousel />
+
+      <Newsfeed />
 
       <section className={styles.grid}>
         <a

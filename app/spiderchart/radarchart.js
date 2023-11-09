@@ -21,5 +21,5 @@ export const RadarChart = () => {
     dispatch({ type: 'next' })
   }
 
-  return <SpiderChartComponent ref={dispose() ? observe() : undefined} />
+  return <SpiderChartComponent />
 }

@@ -1,5 +1,5 @@
 import styles from './spiderchart.module.css'
-import { Component, useEffect, useRef } from 'react'
+import { Component } from 'react'
 import * as d3 from 'd3'
 
 /// TODO(Daud): D3.js Spiderchart function (curry functions, too) components here
@@ -134,50 +134,19 @@ function coordinates(data) {
 /// use a `const Object` over a lambda function, or function itself
 /// Reducers must be pure.
 /// They should update objects and arrays without mutations.
-export const Watch = (width, height) => {
-  let deltaX = d3.scaleRadial([0, RadarConfig.defaultConfig.data - 1], [width])
+// export const Watch = (width, height) => {
+  // let deltaX = d3.scaleRadial([0, RadarConfig.defaultConfig.data - 1], [width])
+  // let deltaY = d3.scaleRadial([0, RadarConfig.defaultConfig.data - 1], [height])
 
-  let deltaY = d3.scaleRadial([0, RadarConfig.defaultConfig.data - 1], [height])
+  /// NOTE(useRef): nothing to reference right [!?]
+  // const [xAxis, setX] = useRef(deltaX)
+  // const [yAxis, setY] = useRef(deltaY)
 
-  const [xAxis, setX] = useRef(deltaX)
-  const [yAxis, setY] = useRef(deltaY)
-
-  useEffect(
-    () =>
-      void d3
-        .select(RadarConfig.defaultConfig.positions.x)
-        .call(d3.axisBottom(deltaX)),
-    [xAxis, deltaX]
-  )
-
-  useEffect(
-    () =>
-      void d3
-        .select(RadarConfig.defaultConfig.positions.y)
-        .call(d3.axisBottom(deltaY)),
-    [yAxis, deltaY]
-  )
-
-  function x() {
-    setX({ type: 'width' })
-  }
-
-  function y() {
-    setY({ type: 'height' })
-  }
-
-  return (
-    <>
-      <label>
-        <input value={xAxis} onChange={e => x(e.target.value)} />
-      </label>
-
-      <label>
-        <input value={yAxis} onChange={e => y(e.target.value)} />
-      </label>
-    </>
-  )
-}
+//   return (
+//     <>
+//     </>
+//   )
+// }
 
 export class SpiderChartComponent extends Component {
   constructor(props) {
@@ -196,7 +165,7 @@ export class SpiderChartComponent extends Component {
     coordinates(this.props)
     differential(this.props)
 
-    Watch(width, height, RadarConfig)
+    // Watch(width, height, RadarConfig)
   }
 
   render() {

@@ -1,0 +1,23 @@
+.Container {
+  display: flex;
+  overflow: scroll;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.Card {
+  max-width: 33.33%;
+  max-height: fit-content;
+
+  padding: 0rem 1rem;
+  margin: auto;
+
+  position: relative;
+  border-radius: 0.1rem;
+
+  backdrop-filter: blur(2rem);
+  cursor: pointer;
+
+  right: 17.5rem;
+}
