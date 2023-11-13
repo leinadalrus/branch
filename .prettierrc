@@ -11,7 +11,7 @@
 
   "endOfLine": "auto",
   "arrowParens": "avoid",
-  "trailingComma": "es5",
+  "trailingComma": "none",
   
   "proseWrap": "preserve",
   "quoteProps": "consistent",
