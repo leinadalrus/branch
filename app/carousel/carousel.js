@@ -37,17 +37,20 @@ export const Carousel = props => {
   return (
     <article>
       <div
-        className="GalleryCarousel"
+        className={styles.GalleryCarousel}
         style={{ transform: `translateX(-${indexed * 100}%)` }}>
         <CardImage />
         {children}
       </div>
-      <button onClick={previous}>
-        <i>p&thinsp;r&thinsp;e&thinsp;v</i>
-      </button>
-      <button onClick={next}>
-        <i>n&thinsp;e&thinsp;x&thinsp;t</i>
-      </button>
+
+      <section className={styles.Separator}>
+        <button onClick={previous}>
+          <i>p&thinsp;r&thinsp;e&thinsp;v</i>
+        </button>
+        <button onClick={next}>
+          <i>n&thinsp;e&thinsp;x&thinsp;t</i>
+        </button>
+      </section>
     </article>
   )
 }
