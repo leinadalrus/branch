@@ -1,3 +1,4 @@
+import { BackgroundImage } from './backgrounds/backgrounds'
 import { Carousel } from './carousel/carousel'
 import { Flair } from './flairs/flair'
 import Login from './logins/login'
@@ -8,6 +9,7 @@ import styles from './page.module.css'
 const Home = () => {
   return (
     <main className={styles.main}>
+      <BackgroundImage />
       <section className={styles.center}>
         <h1 className={styles.card} id="contentHeadingTitle">
           B<hr />
