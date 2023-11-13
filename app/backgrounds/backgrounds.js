@@ -14,7 +14,6 @@ export const BackgroundImage = () => {
         <Image
           alt="User Background Image"
           src={viewSource.filepath}
-          placeholder="blur"
           quality={100}
           fill
           sizes="100vw"
