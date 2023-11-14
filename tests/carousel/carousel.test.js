@@ -5,8 +5,8 @@ test('Has Title', async ({ page }) => {
   await expect(page).toHaveTitle('/^[Branch]$/')
 })
 
-test('Get Gallery Component', async ({ page }) => {
+test('Get Carousel Component', async ({ page }) => {
   await page.goto('https://localhost:8080/')
-  await page.getByRole('image', { name: 'Gallery' }).click()
+  await page.getByRole('image', { name: 'Carousel' }).click()
   await expect(page.getByRole('image', { name: 'Poster' })).toBeVisible()
 })
