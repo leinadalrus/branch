@@ -1,3 +1,4 @@
+import { MessengerCard } from '@/client/components/MessengerCard'
 import { BackgroundImage } from './backgrounds/backgrounds'
 import { Carousel } from './carousel/carousel'
 import { Flair } from './flairs/flair'
@@ -35,6 +36,8 @@ const Home = () => {
       <Carousel />
 
       <Newsfeed />
+
+      <MessengerCard />
 
       <section className={styles.grid}>
         <a
