@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { useContext } from 'react'
 import { createContext } from 'react'
-import { SupabaseInstance } from '@/lib/supabase'
-import styles from './MessengerCard.module.css'
+import { SupabaseClientContext } from '@/lib/store'
+import styles from './messengerCard.module.css'
 
 function CardImage() {
   return (
@@ -55,14 +55,26 @@ function CardBody() {
   )
 }
 
+async function addMessage(message, channelId, userId) {
+  try {
+    let { data } = await SupabaseClientContext.from('messages')
+      .insert({ message, channelId, userId })
+      .select()
+
+    return data
+  } catch (error) {
+    console.log('error', error)
+  }
+}
+
 async function destroyMessage() {
-  const supabase = SupabaseInstance
+  const supabase = SupabaseClientContext
 
   try {
     let { data } = await supabase
       .from('messages')
       .delete()
-      .match({ id: message_id })
+      .match({ id: 'message_id' })
     return data
   } catch (error) {
     console.log('error', error)
@@ -81,10 +93,10 @@ export const MessengerCard = ({ message }) => {
       <div className="text-gray-100 w-4">
         {(user?.id === message.user_id ||
           roles.some(role => ['admin', 'moderator'].includes(role))) && (
-          <button onClick={() => destroyMessage(message.id)}>
-            Delete Message
-          </button>
-        )}
+            <button onClick={() => destroyMessage(message.id)}>
+              Delete Message
+            </button>
+          )}
       </div>
       <div>
         <p className="text-blue-700 font-bold">{message.author.username}</p>
