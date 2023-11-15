@@ -55,18 +55,6 @@ function CardBody() {
   )
 }
 
-async function addMessage(message, channelId, userId) {
-  try {
-    let { data } = await SupabaseClientContext.from('messages')
-      .insert({ message, channelId, userId })
-      .select()
-
-    return data
-  } catch (error) {
-    console.log('error', error)
-  }
-}
-
 async function destroyMessage() {
   const supabase = SupabaseClientContext
 
