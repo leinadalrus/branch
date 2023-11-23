@@ -3,12 +3,12 @@
   margin: 1rem;
 }
 
-.GalleryCarousel {
+.DashboardCarousel {
   max-width: 100vw;
   max-height: 100vh;
 }
 
-.GalleryContainer {
+.DashboardContainer {
   display: flex;
   overflow: scroll;
 

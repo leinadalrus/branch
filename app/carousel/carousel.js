@@ -37,7 +37,7 @@ export const Carousel = props => {
   return (
     <article>
       <div
-        className={styles.GalleryCarousel}
+        className={styles.DashboardCarousel}
         style={{ transform: `translateX(-${indexed * 100}%)` }}>
         <CardImage />
         {children}
