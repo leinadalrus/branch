@@ -1,4 +1,4 @@
-import styles from './newsfeed.module.css'
+import styles from './cardList.module.css'
 import Image from 'next/image'
 
 function CardImage() {
@@ -60,7 +60,7 @@ const ImageMediums = [
   },
 ]
 
-export const Newsfeed = () => {
+export const CardList = () => {
   const medias = ImageMediums.map(media => {
     <li key={media.id}></li>
   })

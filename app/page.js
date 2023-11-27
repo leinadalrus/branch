@@ -3,8 +3,8 @@ import { Carousel } from './carousel/carousel'
 import { Flair } from './flairs/flair'
 import Login from './logins/login'
 import { NavMenu } from './navmenus/navmenu'
-import { Newsfeed } from './newsfeed/newsfeed'
-import { SpiderChart } from './spiderchart/spiderchart.component'
+import { CardList } from './cardList/cardList'
+import { RadarChart } from './radarChart/radarChart.component'
 import styles from './page.module.css'
 
 const Home = () => {
@@ -25,13 +25,20 @@ const Home = () => {
       <section>
         <Flair />
       </section>
-      {/* if (<Login authorised={'LOGIN'} /> != true)*/}
-      <Login /> 
+      {/* TODO(Login): if (<Login authorised={'LOGIN'} /> != true)*/}
+      <Login />
+
+      <section>
+        <article>
+          <RadarChart />
+        </article>
+      </section>
+
       <section>
         <NavMenu />
       </section>
       <Carousel />
-      <Newsfeed />
+      <CardList />
       <section className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
