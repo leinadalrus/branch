@@ -4,6 +4,7 @@ import { Flair } from './flairs/flair'
 import Login from './logins/login'
 import { NavMenu } from './navmenus/navmenu'
 import { Newsfeed } from './newsfeed/newsfeed'
+import { SpiderChart } from './spiderchart/spiderchart.component'
 import styles from './page.module.css'
 
 const Home = () => {
@@ -21,21 +22,16 @@ const Home = () => {
           <i>Main systems: nominal.</i>
         </h2>
       </section>
-
       <section>
         <Flair />
       </section>
-
-      <Login />
-
+      {/* if (<Login authorised={'LOGIN'} /> != true)*/}
+      <Login /> 
       <section>
         <NavMenu />
       </section>
-
       <Carousel />
-
       <Newsfeed />
-
       <section className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -87,7 +83,6 @@ const Home = () => {
           <p>Ravens of the NEST.</p>
         </a>
       </section>
-
       <footer className={styles.description}>
         <i>Daniel David Sansano Surla</i>
         <i>@:daniel.david.surla@gmail.com</i>

@@ -2,12 +2,14 @@
 
 import { useState } from 'react'
 import styles from './login.module.css'
-import { SupabaseInstance } from '@/lib/supabase'
+import { SupabaseInstance } from '@/lib/index'
 
-const Login = () => {
+const Login = ({ authority }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
   const supabase = SupabaseInstance()
+  let [authored, setAuthority] = useState('false')
 
   async function handleLogin(type, username, password) {
     try {
@@ -23,11 +25,17 @@ const Login = () => {
           : await supabase.auth.signUp({ email: username, password })
       if (error) {
         console.log('Error with auth: ' + error.message)
-      } else if (!user)
+      } else if (!user) {
         console.log('Signup successful, confirmation mail should be sent soon!')
+        authored = setAuthority('LOGIN')
+      }
     } catch (error) {
       console.log('error', error)
+      authored = setAuthority('')
     }
+
+    authority = authored
+    authority
   }
 
   return (
