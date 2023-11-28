@@ -1,11 +1,15 @@
 import * as d3 from 'd3'
 
-export const RadialScalar = ({ objectNotationData }) => {
-  let parameterisedArguments = new Array()
-  const datum = new Array(parameterisedArguments.length)
+export const RadialScalar = ({ _jsonData }) => {
+  const jsonData = new Array()
+  jsonData.forEach(key => {
+    _jsonData[key]
+  })
+
+  const datum = new Array(jsonData.length)
   const grades = new Array()
 
-  parameterisedArguments.forEach(() => {
+  jsonData.forEach(() => {
     let vertex = {}
     grades.forEach(column => vertex[column])
     datum.push(vertex)
@@ -22,18 +26,19 @@ export const RadialScalar = ({ objectNotationData }) => {
   const radialScale = () =>
     d3
       .scaleLinear()
-      .domain(parameterisedArguments.length)
-      .range(parameterisedArguments.reduce((row, column) => row + column))
+      .domain(jsonData.length)
+      .range(jsonData.reduce((row, column) => row + column))
 
-  svg.selectAll(parameterisedArguments).join(index =>
-    index
-      .append('circle')
-      .attr('cx', width / 2)
-      .attr('cy', height / 2)
-      .attr('fill', 'none')
-      .attr('stroke', 'slate')
-      .attr('r', delta => d3.scaleRadial(delta))
-  )
+  if (window.onload)
+    svg.selectAll(jsonData).join(index =>
+      index
+        .append('circle')
+        .attr('cx', width / 2)
+        .attr('cy', height / 2)
+        .attr('fill', 'none')
+        .attr('stroke', 'slate')
+        .attr('r', delta => d3.scaleRadial(delta))
+    )
 
   function angleVectors(angle, vector) {
     let x = Math.cos(angle) * radialScale(vector)
@@ -48,12 +53,9 @@ export const RadialScalar = ({ objectNotationData }) => {
     .y(delta => delta.y)
   const colours = ['slate', 'navy', 'grey']
 
-  function coordinate(vertex) {
-    let vectors = new Array()
-
-    parameterisedArguments.forEach(key => {
-      let angle =
-        Math.PI / 2 + (2 * Math.PI * key) / parameterisedArguments.length
+  function coordinate(vectors) {
+    jsonData.forEach(key => {
+      let angle = Math.PI / 2 + (2 * Math.PI * key) / jsonData.length
       vectors.push(angleVectors(angle, key))
     })
 
@@ -62,7 +64,7 @@ export const RadialScalar = ({ objectNotationData }) => {
 
   svg
     .selectAll('path')
-    .parameterisedArguments(parameterisedArguments)
+    .data(jsonData)
     .join(index =>
       index
         .append('path')
