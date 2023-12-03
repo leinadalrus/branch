@@ -21,7 +21,7 @@ function HeroImage() {
   return (
     <div>
       <Image
-        src="/assets/heroes/hero-image.png"
+        src="/public/assets/heroes/hero-image.png"
         alt="Hero Image for Card-Styled Poster"
       />
     </div>

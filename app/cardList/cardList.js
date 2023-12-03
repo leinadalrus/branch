@@ -5,7 +5,7 @@ function CardImage() {
   return (
     <Image
       className={styles.Card}
-      src={'/assets/torsos/torso-part.png'} /// Route of the image file
+      src={'/public/assets/torsos/torso-part.png'} /// Route of the image file
       width={255} /// Desired size with correct aspect ratio
       height={255} /// Desired size with correct aspect ratio
       alt="Image of a desired item."

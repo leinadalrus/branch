@@ -8,7 +8,7 @@ export const Flair = () => {
         <div className={styles.Rectangle3}>
           <Image
             className={styles.miniProfileAvatar}
-            src="/assets/emblems/group-emblem.png" /// Route of the image file
+            src="/public/assets/emblems/group-emblem.png" /// Route of the image file
             height={256} /// Desired size with correct aspect ratio
             width={256} /// Desired size with correct aspect ratio
             alt="Image of a desired item."

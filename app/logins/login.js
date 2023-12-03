@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import styles from './login.module.css'
-import { SupabaseInstance } from '@/lib/index'
+import { SupabaseInstance } from '../lib'
 
 const Login = ({ authority }) => {
   const [username, setUsername] = useState('')
@@ -74,14 +74,14 @@ const Login = ({ authority }) => {
         </form>
 
         <div className={styles.loginConsoleSubmit}>
-          <button
-            type="submit"
+          <a
+            href={['/dashboard', '/login', '/']}
             onClick={event => {
               event.preventDefault()
               handleLogin('LOGIN', username, password)
             }}>
             Sign In
-          </button>
+          </a>
         </div>
       </section>
     </article>

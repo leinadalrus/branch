@@ -1,4 +1,4 @@
-import { SupabaseAuthor, SupabaseInstance, SupabaseSession } from '@/lib'
+import { SupabaseAuthor, SupabaseInstance, SupabaseSession } from '../lib'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
@@ -7,9 +7,9 @@ const SUPABASE_SESSION = SupabaseSession
 const SUPABASE_INSTANCE = SupabaseInstance
 
 export const AppRouter = () => {
-  const [loaded, setLoading] = useState(false)
+  const [/* loaded, */ setLoading] = useState(false)
   const [session, setSession] = useState(null)
-  const [user, setUser] = useState(null)
+  const [/* user, */ setUser] = useState(null)
   const router = useRouter()
 
   useEffect(() => {
@@ -40,11 +40,11 @@ export const AppRouter = () => {
     }
   })
 
-  async function signOut() {
-    const { error } = await SUPABASE_AUTHOR.logout()
+  // async function signOut() {
+  //   const { error } = await SUPABASE_AUTHOR.logout()
 
-    if (!error) {
-      router.push('/')
-    }
-  }
+  //   if (!error) {
+  //     router.push('/')
+  //   }
+  // }
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SupabaseClientContext } from '@/lib/store'
+import { SupabaseClientContext } from '../lib/store'
 
 async function addMessage(message, channelId, userId) {
   try {
