@@ -5,7 +5,7 @@ import styles from './backgrounds.module.css' // un/comment this when you need i
 // import { useMemo } from 'react'
 
 const ViewSource = {
-  filepath: '/public/assets/bg/bg-main.png'
+  filepath: '/assets/bg/bg-main.png'
 }
 
 export const BackgroundImage = () => {
