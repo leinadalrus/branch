@@ -27,13 +27,6 @@ const Home = () => {
       </section>
       {/* TODO(Login): if (<Login authorised={'LOGIN'} /> != true)*/}
       <Login />
-
-      <section>
-        <article>
-          <RadarChart />
-        </article>
-      </section>
-
       <section>
         <NavMenu />
       </section>
