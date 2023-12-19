@@ -14,13 +14,6 @@ Mainly it's supposed to be a React.js version of the `mastiff-press/compcon` Vue
 
 ###### Code Sandbox (share link): `https://codesandbox.io/p/sandbox/young-grass-rj8n9d`
 
-<iframe src="https://codesandbox.io/p/devbox/young-grass-rj8n9d?embed=1&file=%2Fpublic%2Fassets%2Ftorsos%2Ftorso-part.png"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="comp-con-branch"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
