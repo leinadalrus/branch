@@ -12,7 +12,7 @@ This React.js web-app was a way to help with sharing custom Armored Core builds 
 
 Mainly it's supposed to be a React.js version of the `mastiff-press/compcon` Vue.js web-app and employs the `fractalsoftworks.com/starfarer.api/` through IntelliJ's project structure for the Java Spring IO web-app: Conchord.
 
-###### Code Sandbox (share link): `https://codesandbox.io/p/sandbox/young-grass-rj8n9d`
+###### Code Sandbox (share link): [https://codesandbox.io/p/sandbox/young-grass-rj8n9d](https://codesandbox.io/p/sandbox/comp-con-branch-qbly-g4x537)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
