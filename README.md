@@ -8,13 +8,18 @@ This is mainly a small project to recreate the Database interface from `Armored 
 
 Another reason for the development of this project is to create a federated React.js web-app.
 
-This React.js web-app is to help with sharing custom Armored Core builds from the game of the same name.
+This React.js web-app was a way to help with sharing custom Armored Core builds from the game of the same name.
 
-It's also a way to have a React.js version of the `mastiff-press/comcon` Vue.js web-app.
+Mainly it's supposed to be a React.js version of the `mastiff-press/compcon` Vue.js web-app and employs the `fractalsoftworks.com/starfarer.api/` through IntelliJ's project structure for the Java Spring IO web-app: Conchord.
 
-###### Code Sandbox (share link):
+###### Code Sandbox (share link): `https://codesandbox.io/p/sandbox/young-grass-rj8n9d`
 
-`https://codesandbox.io/p/sandbox/young-grass-rj8n9d`
+<iframe src="https://codesandbox.io/p/devbox/young-grass-rj8n9d?embed=1&file=%2Fpublic%2Fassets%2Ftorsos%2Ftorso-part.png"
+     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="comp-con-branch"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
