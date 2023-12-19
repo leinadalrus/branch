@@ -1,12 +1,16 @@
+import { BackgroundImage } from './backgrounds/backgrounds'
+import { Carousel } from './carousel/carousel'
 import { Flair } from './flairs/flair'
 import Login from './logins/login'
 import { NavMenu } from './navmenus/navmenu'
+import { CardList } from './cardList/cardList'
+import { RadarChart } from './radarChart/radarChart.component'
 import styles from './page.module.css'
-import { RadarChart } from './spiderchart/radarchart'
 
 const Home = () => {
   return (
     <main className={styles.main}>
+      <BackgroundImage />
       <section className={styles.center}>
         <h1 className={styles.card} id="contentHeadingTitle">
           B<hr />
@@ -18,19 +22,16 @@ const Home = () => {
           <i>Main systems: nominal.</i>
         </h2>
       </section>
-
       <section>
         <Flair />
       </section>
-
+      {/* TODO(Login): if (<Login authorised={'LOGIN'} /> != true)*/}
       <Login />
-
-      <RadarChart />
-
       <section>
         <NavMenu />
       </section>
-
+      <Carousel />
+      <CardList />
       <section className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -82,7 +83,6 @@ const Home = () => {
           <p>Ravens of the NEST.</p>
         </a>
       </section>
-
       <footer className={styles.description}>
         <i>Daniel David Sansano Surla</i>
         <i>@:daniel.david.surla@gmail.com</i>

@@ -41,3 +41,14 @@ next-env.d.ts
 *.code-workspace
 *.sublime-project
 *.sublime-workspace
+
+# Playwright
+/test-results/
+/tests-examples/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# .envs
+/.infra
+.env
