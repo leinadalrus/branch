@@ -4,7 +4,6 @@ import { Flair } from './flairs/flair'
 import Login from './logins/login'
 import { NavMenu } from './navmenus/navmenu'
 import { CardList } from './cardList/cardList'
-import { RadarChart } from './radarChart/radarChart.component'
 import styles from './page.module.css'
 
 const Home = () => {
