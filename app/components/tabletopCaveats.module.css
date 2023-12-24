@@ -1,0 +1,10 @@
+.CardLayer {
+  display: flex;
+  flex-basis: 100%;
+  flex-grow: 1;
+}
+
+.DropzoneSect {
+  flex-basis: 100%;
+  flex-grow: 1;
+}
