@@ -3,7 +3,7 @@
 import { createInterface } from 'node:readline/promises'
 import { stdin, stdout } from 'node: process'
 
-export const DaveResource = async () => {
+export const BreadResource = async () => {
   const reader = createInterface({ stdin, stdout })
 
   const output = await reader.question(
