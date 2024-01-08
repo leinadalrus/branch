@@ -1,8 +1,15 @@
-import { useState } from "react";
-import "./App.css";
+import { useState } from 'react'
+import styles from './Globals.module.css'
+import './App.css'
+
+import BackgroundImage from './backgrounds/backgrounds'
+import Flair from './flairs/flair'
+import NavMenu from './navmenus/navmenu'
+import Carousel from './carousel/carousel'
+import CardList from './cardList/cardList'
 
 const App = () => {
-  const [productDescriptor, setProductDescriptor] = useState("");
+  const [productDescriptor, setProductDescriptor] = useState('')
 
   return (
     <>
@@ -58,8 +65,8 @@ const App = () => {
               Test <span>&#9733;</span>
             </h2>
             <p>
-              Test yourself in N&thinsp;E&thinsp;S&thinsp;T Branch&apos;s
-              playground&nbsp;space
+              Test yourself in the N&thinsp;E&thinsp;S&thinsp;T
+              testing gridroom&nbsp;space
             </p>
           </a>
 
@@ -70,9 +77,9 @@ const App = () => {
             rel="noopener noreferrer"
           >
             <h2>
-              A&#8201;C&#8201;N&#8201;U&thinsp;s <span>&#9733;</span>
+              A&#8201;C&#8201;U&thinsp;s <span>&#9733;</span>
             </h2>
-            <p>Armored Core NEST Units.</p>
+            <p>Armored Core Units.</p>
           </a>
 
           <a
@@ -91,7 +98,7 @@ const App = () => {
         <div className="card">
           <button
             onClick={() =>
-              setProductDescriptor((productDescriptor) => productDescriptor)
+              setProductDescriptor(productDescriptor => productDescriptor)
             }
           >
             {productDescriptor}
@@ -108,7 +115,8 @@ const App = () => {
         <i>All Rights Reserved</i>
       </footer>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
+

@@ -1,18 +1,19 @@
 'use client'
 
-import Image from 'next/image'
-import { useState } from 'react'
+import styles from './poster.module.css'
 
-function Banner(props) {
+import Image, { useState } from 'react'
+
+function Banner(title) {
   return (
     <section>
-      <h1>{props.title}</h1>
+      <h1>{title}</h1>
     </section>
   )
 }
 
 function CardTitle(props) {
-  <section class="poster-title">
+  <section className={styles.posterTitle}>
     <h1>{props.title}</h1>
   </section>
 }
@@ -28,13 +29,13 @@ function HeroImage() {
   )
 }
 
-function ItemDescription(props) {
+function ItemDescription(description) {
   const authors = ['Daniel David', 'John Doe', 'Jane Doe']
 
   return (
     <>
-      <section class="poster-section">
-        <p id="poster-description">{props.description}</p>
+      <section className={styles.posterSection}>
+        <p id="poster-description">{description}</p>
       </section>
       <ul>
         {authors.map(author => (
@@ -59,13 +60,13 @@ const Poster = () => {
 
   return (
     <>
-      <article id="poster-card">
+      <article className={styles.posterCard}>
         <Banner />
         <CardTitle />
         <HeroImage />
         <ItemDescription />
       </article>
-      <div class="poster-buttons-container">
+      <div id="poster-buttons-container">
         <button id="poster-button" onClick={likeOnClick}>
           l i k e({likes})
         </button>

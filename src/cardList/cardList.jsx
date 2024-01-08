@@ -1,5 +1,5 @@
 import styles from './cardList.module.css'
-import Image from 'next/image'
+import Image from 'react'
 
 function CardImage() {
   return (
@@ -30,7 +30,7 @@ function CardBody() {
         <CardBanner />
         <article className={styles.Card}>
           <h1>Lorem ipsum dolor</h1>
-          <div class="CardSection">
+          <div className="CardSection">
             <p id="CardDescription">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -42,7 +42,7 @@ function CardBody() {
             </p>
           </div>
 
-          <div class="CardButtons">
+          <div className="CardButtons">
             <button id="CardButton">L I K E</button>
             <button id="CardButton">S H A R E</button>
           </div>
@@ -73,3 +73,5 @@ export const CardList = () => {
     </article>
   )
 }
+
+export default CardList

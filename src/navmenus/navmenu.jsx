@@ -1,3 +1,4 @@
+import Login from '../logins/login'
 import styles from './navmenu.module.css'
 
 export const NavMenu = () => {
@@ -26,3 +27,5 @@ export const NavMenu = () => {
     </div>
   )
 }
+
+export default Login

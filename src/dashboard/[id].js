@@ -30,3 +30,4 @@ export const Dashboard = () => {
       router.push('/dashboard/features/1')
   }, [features, dashboardId, router])
 }
+export default Dashboard

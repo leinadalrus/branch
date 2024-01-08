@@ -21,7 +21,7 @@ async function destroyMessage() {
 
 const MessageContext = createContext()
 
-export const MessengerCard = ({ message }) => {
+export const MessengerCard = (message) => {
   const { user, roles } = useContext(MessageContext)
 
   return (
@@ -43,3 +43,4 @@ export const MessengerCard = ({ message }) => {
     </article>
   )
 }
+export default MessengerCard

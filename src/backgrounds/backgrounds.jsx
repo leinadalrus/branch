@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'react'
 import styles from './backgrounds.module.css' // un/comment this when you need it
 
 // Expo
@@ -24,3 +24,6 @@ export const BackgroundImage = () => {
     </>
   )
 }
+
+export default BackgroundImage
+

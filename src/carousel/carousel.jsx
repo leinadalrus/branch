@@ -1,8 +1,7 @@
 'use client'
 
 import styles from './carousel.module.css'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import Image, { useEffect, useState } from 'react'
 
 function CardImage() {
   return (
@@ -16,9 +15,7 @@ function CardImage() {
   )
 }
 
-export const Carousel = props => {
-  const { children } = props
-
+export const Carousel = children => {
   const [indexed, setHead] = useState(0)
   const [interval, setInterval] = useState(children)
 
@@ -54,6 +51,8 @@ export const Carousel = props => {
     </article>
   )
 }
+
+export default Carousel
 
 // Attributions:
 // Aulia, D 2021,

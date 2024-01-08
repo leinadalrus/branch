@@ -1,20 +1,20 @@
 import Card from './card.component'
 import styles from './tradingCard.module.css'
 
-export const TradingCard = () => (
+export const TradingCard = (events) => (
   <Card
     className={styles.CardLayer}
-    class="DraggableSect"
     draggable="true"
-    ondragstart="startsDragging(events)"></Card>
+    ondragstart={startsDragging(events)}></Card>
 )
 
-export const TabletopPlanar = () => (
+export const TabletopTuple = (tupleWCondition) => (
   <article className={styles.TabletopLayer}>
     <div
       className={styles.DropzoneSect}
-      ondragover="endsDragging(events)"
-      ondrop="onDropped(events)"></div>
+      onDragOver={endsDragging(tupleWCondition)}
+      onDrop={onDropped(tupleWCondition)}
+      onDragStart={handleDraggingCaveats()}></div>
   </article>
 )
 
@@ -55,3 +55,6 @@ function handleDraggingCaveats() {
     event.addEventListener('ondrop', onDropped)
   })
 } // NOTE(Static): call this function through server-side to do a sentinel check
+
+
+export default TabletopTuple

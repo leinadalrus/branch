@@ -79,3 +79,5 @@ export const RadarChart = ({ dataset }) => {
         .attr('opacity', 0.5)
     )
 }
+
+export default RadarChart

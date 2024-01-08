@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'react'
 import styles from './flair.module.css'
 
 export const Flair = () => {
@@ -36,3 +36,4 @@ export const Flair = () => {
     </article>
   )
 }
+export default Flair

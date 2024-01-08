@@ -1,4 +1,4 @@
-.poster-card {
+.posterCard {
   max-width: 75%;
   max-height: fit-content;
 
@@ -30,7 +30,7 @@
   color: #f7f9fe;
 }
 
-.poster-card:before {
+.posterCard:before {
   width: 25rem;
   height: 25rem;
 
@@ -51,7 +51,7 @@
   opacity: 50%;
 }
 
-.poster-card:after {
+.posterCard:after {
   width: 20rem;
   height: 20rem;
 
@@ -101,11 +101,11 @@
   }
 }
 
-.poster-card:hover {
+.posterCard:hover {
   transform: scale(1.1) rotate(-3deg);
 }
 
-.poster-section {
+.posterSection {
   justify-content: center;
   display: flex;
   place-items: center;

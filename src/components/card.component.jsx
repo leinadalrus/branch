@@ -1,16 +1,13 @@
-import Image from 'next/image'
+import BackgroundImage from '../backgrounds'
 import { CircleButton, IconButton } from './button.component'
 import styles from './card.module.css'
 
 // React.js
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-export const Card = ({ source }) => {
+export const Card = () => {
   const [selectedDeck, setSelectedDeck] = useState('')
   const [showDeckBuilds, setShownDeckBuild] = useState('')
-  const backgroundImage = source
-    ? { uri: source }
-    : require('../../assets/images/bg/app-background.png')
 
   function onReset() {
     setShownDeckBuild('0')
@@ -26,14 +23,14 @@ export const Card = ({ source }) => {
 
   return (
     <>
-      <Image
-        source={backgroundImage}
-        style={[styles.container, styles.image]}
-        alt="Background image for a Card."
-      />
+      <BackgroundImage />
       <section style={styles.optionsContainer}>
         <article style={styles.optionsRow}>
-          <IconButton icon="refresh" label="Reset" onPress={onReset} />
+          <IconButton
+            icon="refresh"
+            label="Reset"
+            onPress={onReset}
+          />
           <CircleButton onPress={onAddCard} />
           <IconButton
             icon="save-alt"
@@ -47,3 +44,4 @@ export const Card = ({ source }) => {
 }
 
 export default Card
+

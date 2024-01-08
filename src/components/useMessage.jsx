@@ -13,7 +13,7 @@ async function addMessage(message, channelId, userId) {
   }
 }
 
-export function UseMessage({ onSubmit }) {
+export function UseMessage(onSubmit) {
   const [messageInput, setMessage] = useState('')
 
   const emitSubmission = event => {
@@ -36,3 +36,5 @@ export function UseMessage({ onSubmit }) {
     </>
   )
 }
+
+export default UseMessage
