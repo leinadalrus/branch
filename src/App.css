@@ -1,3 +1,7 @@
+.card {
+  padding: 2em;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -73,20 +77,6 @@
 }
 
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 4rem 0;
-}
-
-.center::before {
-  background: var(--secondary-glow);
-  border-radius: 50%;
-  width: 480px;
-  height: 360px;
-  margin-left: -400px;
-}
 
 .center::after {
   background: var(--primary-glow);
@@ -216,10 +206,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .vercelLogo {
-    filter: invert(1);
-  }
-
   .logo {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
   }

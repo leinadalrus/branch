@@ -1,0 +1,54 @@
+buttonContainer {
+  width: 300;
+  height: 60;
+  margin-right: 20;
+  align-items: center;
+  justify-content: center;
+  padding: 3;
+}
+
+button {
+  border-radius: 18;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+buttonIcon {
+  padding-right: 8;
+}
+
+buttonLabel {
+  color: #999eb2;
+  font-size: 16;
+}
+
+circleButtonContainer {
+  width: 80;
+  height: 80;
+  margin-right: 60;
+  border-width: 4;
+  border-color: #9aa3d2;
+  border-radius: 40;
+  padding: 3;
+}
+
+circleButton {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40;
+  background-color: #0f1014;
+}
+
+iconButton {
+  justify-content: center;
+  align-items: center;
+}
+
+iconButtonLabel {
+  color: #9aa3d2;
+  margin-top: 12;
+}
