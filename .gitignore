@@ -72,3 +72,4 @@ next-env.d.ts
 # .envs
 /.infra
 .env
+yarn.lock
