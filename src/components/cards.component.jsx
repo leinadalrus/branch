@@ -1,7 +1,12 @@
-import { useRef } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './cards.module.css'
 
-function onDragOfCard({ events }) {
+function restfulRetrieval() {
+  const responseVal = fetch('localhost:8080/api/cards')
+  return JSON.parse(responseVal)
+}
+
+function startDragging({ events }) {
   events.forEach(event => {
     event.classList.add('card')
   })
@@ -11,13 +16,15 @@ function onDragOfCard({ events }) {
   events.currentTarget
 }
 
-function onDropOfCard({ events }) {
+function endDragging({ events }) {
   const data = events.dataTransfer.getData('application/json')
   const draggedElement = document.getElementsByClassName(data)
-  const dropZone = events.target
+  const tabletop = events.target
 
-  dropZone.appendChild(draggedElement)
+  tabletop.appendChild(draggedElement)
+}
 
+function dropping({ events }) {
   events.forEach(event => {
     event.classList.remove('card')
   })
@@ -25,31 +32,33 @@ function onDropOfCard({ events }) {
 }
 
 export function DragAndDropCard() {
-  const [cardTupler, setCardTuple] = useRef([0, 0])
-
-  const CardState = {
-    state: [0, 0]
-  }
-
   let cardLayers = document.querySelectorAll('.TradingCardLayer')
-  let cardState = CardState
 
   cardLayers.forEach(card => {
-    card.addEventListener('ondragstart', onDragOfCard)
-    card.addEventListener('ondrop', onDropOfCard)
+    card.addEventListener('ondragstart', startDragging)
+    card.addEventListener('ondragend', endDragging)
+    card.addEventListener('ondrop', dropping)
+  })
+}
+
+export const DealtCardSentinel = () => {
+  const [cardTuple, setCardTuple] = useState([0, 0])
+
+  useEffect(() => {
+    const recv = () => {
+      setCardTuple(restfulRetrieval())
+    }
+
+    recv()
   })
 
   try {
-    while (cardState.state != cardTupler) {
-      onDragOfCard()
-      onDropOfCard()
-      setCardTuple(cardTupler)
+    while (cardTuple != restfulRetrieval()) {
+      DragAndDropCard()
     }
   } catch (exception) {
     console.table(exception)
   }
-
-  return cardState.state
 }
 
 export const TradingCard = () => {
@@ -58,7 +67,9 @@ export const TradingCard = () => {
       <article
         className={styles.TradingCardLayer}
         draggable={true}
-        onDragStart={onDragOfCard()}
+        onDragStart={startDragging()}
+        onDragEnd={endDragging()}
+        onDrop={dropping()}
       ></article>
     </>
   )
