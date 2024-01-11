@@ -65,13 +65,23 @@ export const TradingCard = () => {
   return (
     <>
       <article
-        className={styles.TradingCardLayer}
+        className={styles.CardContainer}
         draggable={true}
         onDragStart={startDragging()}
-        onDragEnd={endDragging()}
-        onDrop={dropping()}
       ></article>
     </>
+  )
+}
+
+export const TabletopPlanar = () => {
+  return (
+    <article className={styles.OptionsContainer}>
+      <div
+        className={styles.OptionsRow}
+        onDragOver={endDragging()}
+        onDrop={dropping()}
+      ></div>
+    </article>
   )
 }
 

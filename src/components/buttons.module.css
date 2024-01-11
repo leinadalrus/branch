@@ -1,0 +1,20 @@
+.ButtonImage {
+  flex: 1;
+  resize: cover;
+  justify-content: center;
+}
+
+.ButtonText {
+  font-size: 16;
+  color: #999eb2;
+}
+
+.OptionsContainer {
+  position: absolute;
+  bottom: 80;
+}
+
+.OptionsRow {
+  align-items: center;
+  flex-direction: row;
+}
