@@ -85,4 +85,4 @@ export const TabletopPlanar = () => {
   )
 }
 
-export default TradingCard
+export default DealtCardSentinel
