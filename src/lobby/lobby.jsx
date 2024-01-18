@@ -34,7 +34,6 @@ export function LobbyRoom({ roomID, channelMessages }) {
   const [createdMessage, handleCreatedMessage] = useState(null)
   const [destroyedMessage, handleDestroyedMessage] = useState(null)
   const [messages, setMessages] = useState(promisedMessage)
-  const [lobbies, setLobbies] = useState(LobbyRoom)
   const roomService = RoomService
 
   useEffect(() => {
@@ -56,16 +55,19 @@ export function LobbyRoom({ roomID, channelMessages }) {
     if (createdMessage) {
       const handle = () => {
         channelMessage(roomID, channelMessages)
+        addMessage(createdMessage, channelMessage, messages)
+        handleCreatedMessage(channelMessages)
         setMessages(channelMessages)
       }
 
       handle()
     }
-  })
+  }, [channelMessages, createdMessage, messages, roomID])
 
   useEffect(() => {
-    if (destroyMessage) {
+    if (destroyedMessage) {
       setMessages(messages)
+      handleDestroyedMessage(messages)
     }
-  }, [messages])
+  }, [destroyedMessage, messages])
 }
