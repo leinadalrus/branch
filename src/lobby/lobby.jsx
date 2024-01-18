@@ -12,26 +12,60 @@ function retrieveRoom(id) {
   return fetch(`localhost:8080/api/room/${id}`)
 }
 
-export function LobbyRoom({ roomID }) {
-  useEffect(() => {
-    return () => LobbyContext
-  }, [roomID])
+function getUser() {}
+
+function removeUser() {}
+
+function destroyMessage() {}
+
+function channelMessage(channel, port) {
+  channel = new MessageChannel()
+  port = channel.port1
+
+  port.onmessage = retrieveRoom
 }
 
-export function PromiseMessage({ promisedMessage }) {
+function addMessage(event, port, message) {
+  event.preventDefault()
+  port.postMessage(message)
+}
+
+export function LobbyRoom({ roomID, channelMessages }) {
   const [createdMessage, handleCreatedMessage] = useState(null)
   const [destroyedMessage, handleDestroyedMessage] = useState(null)
   const [messages, setMessages] = useState(promisedMessage)
   const [lobbies, setLobbies] = useState(LobbyRoom)
-  
   const roomService = RoomService
 
   useEffect(() => {
-    lobbies.array.forEach(element => {
-      retrieveRoom(element) // : in for-each-loop := lobbies.id
-    })
-    
+    return () => LobbyContext
+  }, [roomID])
+
+  useEffect(() => {
     const messageListener = roomService.channel('conchord.api.messages') // use the RabbitMQ parameter/query
     messageListener.observe()
   })
+
+  useEffect(() => {
+    if (roomID >= 1) {
+      channelMessage(roomID, channelMessages)
+    }
+  }, [channelMessages, messages, roomID])
+
+  useEffect(() => {
+    if (createdMessage) {
+      const handle = () => {
+        channelMessage(roomID, channelMessages)
+        setMessages(channelMessages)
+      }
+
+      handle()
+    }
+  })
+
+  useEffect(() => {
+    if (destroyMessage) {
+      setMessages(messages)
+    }
+  }, [messages])
 }
