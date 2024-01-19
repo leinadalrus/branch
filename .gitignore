@@ -63,8 +63,8 @@ next-env.d.ts
 *.sublime-workspace
 
 # Playwright
-/test-results/
 /tests-examples/
+/test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
