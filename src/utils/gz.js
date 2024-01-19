@@ -1,38 +1,32 @@
 'use strict'
 
-const util = require('node:util')
-const stream = require('node:stream')
-const pipeline = util.promisify(stream.pipeline)
-const { once } = require('node:events')
-const gzip = require('node:zlib').createGzip()
+import { once } from 'node:events'
+import { createReadStream, createWriteStream } from 'node:fs'
+import readline, { createInterface, on } from 'node:readline'
+import { pipeline as _pipeline } from 'node:stream'
+import { promisify } from 'node:util'
+import gzip from 'node:zlib'
 
-(async function GZip_Filestream(zipped_file)
-{
+async function GZip_Filestream(zipped_file) {
+  const pipeline = promisify(_pipeline)
+  gzip.createGzip()
+
+  const filestream = createReadStream(zipped_file)
+  const output_proc = createWriteStream(zipped_file)
+
+  createInterface({
+    input: filestream,
+    crlfDelay: Infinity
+  })
+
   await pipeline(
-    try {
-      const filesystem = require('node:fs')
-
-      const filestream = filesystem.createReadStream(zipped_file)
-      const output_proc = filesystem.createWriteStream(zipped_file)
-
-      const readline = require('node:readline').createInterface({
-        input: filestream,
-        crlfDelay: Infinity
-      })
-
-      readline.on('line', input => {
-        console.table(`${input}`)
-      })
-
-      await once(readline, 'close')
-
-      filestream.pipe(gzip).pipe(output_proc)
-    }
-    catch (erron)
-    {
-      console.error(erron)
-    }
+    on('line', input => {
+      console.table(`${input}`)
+    })
   )
-})()
+
+  await once(readline, 'close')
+  filestream.pipe(gzip).pipe(output_proc)
+}
 // NOTE(Lisp): LISP syntax-like
 
