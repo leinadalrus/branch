@@ -7,7 +7,7 @@ import { pipeline as _pipeline } from 'node:stream'
 import { promisify } from 'node:util'
 import gzip from 'node:zlib'
 
-async function GZip_Filestream(zipped_file) {
+export async function GZip_Filestream(zipped_file) {
   const pipeline = promisify(_pipeline)
   gzip.createGzip()
 

@@ -12,12 +12,6 @@ function retrieveRoom(id) {
   return fetch(`localhost:8080/api/room/${id}`)
 }
 
-function getUser() {}
-
-function removeUser() {}
-
-function destroyMessage() {}
-
 function channelMessage(channel, port) {
   channel = new MessageChannel()
   port = channel.port1
@@ -33,7 +27,7 @@ function addMessage(event, port, message) {
 export function LobbyRoom({ roomID, channelMessages }) {
   const [createdMessage, handleCreatedMessage] = useState(null)
   const [destroyedMessage, handleDestroyedMessage] = useState(null)
-  const [messages, setMessages] = useState(promisedMessage)
+  const [messages, setMessages] = useState(channelMessages)
   const roomService = RoomService
 
   useEffect(() => {

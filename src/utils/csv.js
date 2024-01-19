@@ -4,7 +4,7 @@ import { createReadStream } from 'node:fs'
 import { once } from 'node:events'
 import readline from 'node:readline'
 
-async function Parse_CSV_Filestream(csv_file) {
+export async function Parse_CSV_Filestream(csv_file) {
   try {
     const regex = new RegExp('/^(?:\\"([^\\"])\\"|([^,]),?)$/gm')
     const filestream = createReadStream(csv_file)
