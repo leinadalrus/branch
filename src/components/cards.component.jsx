@@ -6,7 +6,7 @@ function restfulRetrieval() {
   return JSON.parse(responseVal)
 }
 
-function startDragging({ events }) {
+export function startDragging({ events }) {
   events.forEach(event => {
     event.classList.add('card')
   })
@@ -16,7 +16,7 @@ function startDragging({ events }) {
   events.currentTarget
 }
 
-function endDragging({ events }) {
+export function endDragging({ events }) {
   const data = events.dataTransfer.getData('application/json')
   const draggedElement = document.getElementsByClassName(data)
   const tabletop = events.target
@@ -24,7 +24,7 @@ function endDragging({ events }) {
   tabletop.appendChild(draggedElement)
 }
 
-function dropping({ events }) {
+export function dropping({ events }) {
   events.forEach(event => {
     event.classList.remove('card')
   })
@@ -41,7 +41,7 @@ export function DragAndDropCard() {
   })
 }
 
-export const DealtCardSentinel = () => {
+export const CardCommand = () => {
   const [cardTuple, setCardTuple] = useState([0, 0])
 
   useEffect(() => {
@@ -73,16 +73,4 @@ export const TradingCard = () => {
   )
 }
 
-export const TabletopPlanar = () => {
-  return (
-    <article className={styles.OptionsContainer}>
-      <div
-        className={styles.OptionsRow}
-        onDragOver={endDragging()}
-        onDrop={dropping()}
-      ></div>
-    </article>
-  )
-}
-
-export default DealtCardSentinel
+export default CardCommand

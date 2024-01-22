@@ -1,22 +1,22 @@
 import { createContext, useEffect, useState } from 'react'
 
 // Do not export this: ...this must remain private-
-const LobbyContext = createContext()
+const ChannelContext = createContext()
 
 const RoomService = {
   channel: () => {},
   observe: () => {}
 }
 
-function retrieveRoom(id) {
-  return fetch(`localhost:8080/api/room/${id}`)
+function fetchChannel(id) {
+  return fetch(`localhost:8080/api/channels/${id}`)
 }
 
 function channelMessage(channel, port) {
   channel = new MessageChannel()
   port = channel.port1
 
-  port.onmessage = retrieveRoom
+  port.onmessage = fetchChannel
 }
 
 function addMessage(event, port, message) {
@@ -24,14 +24,14 @@ function addMessage(event, port, message) {
   port.postMessage(message)
 }
 
-export function LobbyRoom({ roomID, channelMessages }) {
+export function RoomChannel({ roomID, channelMessages }) {
   const [createdMessage, handleCreatedMessage] = useState(null)
   const [destroyedMessage, handleDestroyedMessage] = useState(null)
   const [messages, setMessages] = useState(channelMessages)
   const roomService = RoomService
 
   useEffect(() => {
-    return () => LobbyContext
+    return () => ChannelContext
   }, [roomID])
 
   useEffect(() => {
