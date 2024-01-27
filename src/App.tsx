@@ -1,20 +1,23 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-export const App = () => {
+export const TradingCard = () => {
+  const [image, setImage] = useState('')
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
 
   const [width, setWidth] = useState('')
+  // JSON derived values
   const [height, setHeight] = useState('')
+  // JSON derived values
 
   // TODO(observer): employ `useEffect` code here ...
   useEffect(() => {
+    const img_el = document.getElementById('hero')
     const ttl_el = document.getElementById('title')
     const desc_el = document.getElementById('description')
 
+    setImage(img_el!.innerHTML)
     setTitle(ttl_el!.innerHTML)
     setDescription(desc_el!.innerHTML)
   }, [title, description])
@@ -43,12 +46,7 @@ export const App = () => {
         >
           <div>{title}</div>
           <img
-            src={viteLogo}
-            className="logo"
-            alt="Vite logo"
-          />
-          <img
-            src={reactLogo}
+            src={image}
             className="logo react"
             alt="React logo"
           />
@@ -60,5 +58,35 @@ export const App = () => {
   )
 }
 
-export default App
+export const Tabletop = () => {
+  const [width, setWidth] = useState('')
+  // JSON derived values
+  const [height, setHeight] = useState('')
+  // JSON derived values
 
+  useEffect(() => {
+    const x = document.getElementById('card')
+    const width = x!.dataset.width
+    const y = document.getElementById('card')
+    const height = y!.dataset.height
+
+    setWidth(width!)
+    setHeight(height!)
+  }, [width, height])
+
+  return (
+    <>
+    </>
+  )
+}
+
+export const App = () => {
+  return (
+    <>
+      <TradingCard />
+      <Tabletop />
+    </>
+  )
+}
+
+export default App
